@@ -17,6 +17,7 @@ import Navbar from './components/Layouts/Navbar'
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
 import AddGame from './components/AddGame';
+import Challenges from './components/Challenges';
 
 /*------
   Since JWT requires token to be passed in header
@@ -174,6 +175,7 @@ class App extends Component {
         <Route path='/profile' component={Profile}/>
         <Route path='/programs' component={Programs}/>
         <Route path='/exercises' component={Exercises}/>
+        <Route path='/challenges' component={Challenges}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
         />
         {/* <Container>
