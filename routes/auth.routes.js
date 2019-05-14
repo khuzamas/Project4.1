@@ -46,14 +46,17 @@ router.post('/register', (request, response)=>{
   }
 
   let user = new User(data)
-  
   user.save()
-  .then(()=> {
-    response.status(200).json({ message : "Registered Successfully" })
-  })
-  .catch(err =>{
-    response.status(401).json({ message : "You are not Allowed to Register"})
-  })
+  response.send('cool')
+  // .then(()=> {
+  //   const token = jwt.sign(user.toJSON(), JWTSecret, { expiresIn: 60 * 60 });
+  //   console.log(token);
+    
+  //   return response.status(200).json({user, token});
+  // })
+  // .catch(err =>{
+  //   response.status(401).json({ message : "You are not Allowed to Register"})
+  // })
 
 })
 

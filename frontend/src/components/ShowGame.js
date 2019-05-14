@@ -11,8 +11,6 @@ const ShowGame = (props) => {
         </ListGroupItemText>
       </ListGroupItem>
      )}
-    
-
  </ListGroup>
   )
 }

@@ -1,13 +1,13 @@
 import React from 'react'
 import './Navbar.css'
 import {
-  BrowserRouter as Router, Route, Link
+  BrowserRouter as Router, Route, Link, Redirect
 } from 'react-router-dom'
 // import Profile from '../Profile'
 
 function Navbar() {
   return (
-    <Route>
+
       <div>
         <div className="navbar">
           <ul className="navbar-nav mr-auto">
@@ -31,7 +31,7 @@ function Navbar() {
           </ul>
         </div> 
       </div>
-    </Route>
+    
   )
 }
 

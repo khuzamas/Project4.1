@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './Layouts/Header';
 import '../App.css';
 import './UserHome.css'
 import Carousel from 'react-bootstrap/Carousel'
@@ -6,6 +7,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
+// ==
 
 
 export default class UserHome extends Component {
@@ -18,6 +20,7 @@ export default class UserHome extends Component {
         console.log(this.state.check);
         this.setState({check: !(this.state.check)})
     }
+
     
       
     render() {
@@ -49,6 +52,7 @@ export default class UserHome extends Component {
           
         return (
             <div className="user-home">
+            <Header />
                 {/* <div className="navbar">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
