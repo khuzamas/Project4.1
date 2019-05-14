@@ -1,9 +1,9 @@
 [{
     "name" : "Muscle Building Program",
     "description": "4",
-    "exercises": ["5cda8408f1f25206279b0f89", "5cda8408f1f25206279b0f8a", 
-        "5cda8408f1f25206279b0f8b", "5cda8408f1f25206279b0f8c", "5cda8408f1f25206279b0f8d", 
-        "5cda8408f1f25206279b0f8e", "5cda8408f1f25206279b0f8f" , "5cda8408f1f25206279b0f90"],
+    "exercises": ["5cdb1dde0e13bf06450a25a0", "5cdb1dde0e13bf06450a25a1", 
+        "5cdb1dde0e13bf06450a25a2", "5cdb1dde0e13bf06450a25a3", "5cdb1dde0e13bf06450a25a4", 
+        "5cdb1dde0e13bf06450a25a5", "5cdb1dde0e13bf06450a25a6" , "5cdb1dde0e13bf06450a25a7"],
     "image": "https://via.placeholder.com/200",
     "reward": "4"
 }]
