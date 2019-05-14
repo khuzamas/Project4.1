@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Programs from './components/Programs';
 import Exercises from './components/Exercises';
 import Profile from './components/Profile';
+import Navbar from './components/Layouts/Navbar'
 
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
@@ -152,20 +153,21 @@ class App extends Component {
     const Logout = (this.state.isAuthenticated) ? <Button onClick={this.logout}>Logout</Button> : null
      //show games when logged in
     const GameView = (this.state.isAuthenticated) ? <Row>
-                                                      <Col md={6}>
-                                                        <ShowGame games={this.state.games} />
-                                                      </Col>
+      <Col md={6}>
+        <ShowGame games={this.state.games} />
+      </Col>
 
-                                                      <Col md={6}>
-                                                        <AddGame add={this.submitHandler} change={this.changeHandler} />
-                                                      </Col>
-                                                      
-                                                    </Row> : null
+      <Col md={6}>
+        <AddGame add={this.submitHandler} change={this.changeHandler} />
+      </Col>
+      
+    </Row> : null
 
     console.log(this.state)
     
     return (
       <Router>
+        <Navbar/>
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
@@ -174,15 +176,15 @@ class App extends Component {
         <Route path='/exercises' component={Exercises}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
         />
-      <Container>
-        <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
+        {/* <Container>
+          <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
+          
+          Username: {this.state.user.username}
+          {Logout}
         
-        Username: {this.state.user.username}
-        {Logout}
-      
-        {showLogin}
-        {GameView}
-      </Container>
+          {showLogin}
+          {GameView}
+        </Container> */}
       </Router>
     );
   }
