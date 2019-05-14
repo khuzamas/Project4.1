@@ -35,12 +35,13 @@ export class Profile extends Component {
       { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
       { name: 'Group E', value: 278 }, { name: 'Group F', value: 189 },
     ];
+
         
     return (
       <div className="user-profile">
         <div className="user">
           <img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/>
-          <h3>USER NAME</h3>
+          <h3> {this.props.user.username}</h3>
         </div>
 
         <div className="row user-info">

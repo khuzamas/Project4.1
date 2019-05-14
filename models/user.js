@@ -18,7 +18,7 @@ activity: {type: String},
 goal: {type: String},
 challenges: [{ type: Schema.Types.ObjectId, ref: 'Challenge' }],
 badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
-tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
+Programs: [{ type: Schema.Types.ObjectId, ref: 'Program' }],
 points: {
   type: Number,
   default: 0

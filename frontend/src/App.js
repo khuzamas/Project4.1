@@ -185,16 +185,12 @@ class App extends Component {
     console.log(this.state)
     
     return (
-<<<<<<< HEAD
-      <Router>   
-=======
       <Router>
         <Navbar/>
->>>>>>> 47814e05be89003d31dcfa7ab8c1de99cdd96ae8
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
-        <Route path='/profile' component={Profile}/>
+        <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
         <Route path='/programs' component={Programs}/>
         <Route path='/exercises' component={Exercises}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}

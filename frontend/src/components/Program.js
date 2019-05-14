@@ -16,12 +16,14 @@ export default class Program extends Component {
     })
     
     return (
-      <div>
+      <div className='card'>
+      <div className="card-body">
         <h2>{this.props.program.name}</h2>
         <p>Desctiption: {this.props.program.description}</p>
         <p>Reward: {this.props.program.reward}</p>
         <p>Included excercises:</p>
-        {exercises}
+        {/* {exercises} */}
+        </div>
       </div>
     )
   }

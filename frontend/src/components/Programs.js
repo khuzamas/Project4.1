@@ -29,10 +29,9 @@ class Programs extends Component {
     })
   }
 
-  detailsClickHandler= (program) => {
-    this.props.history.push('/program')
-    // return <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} />}/>
-    // return <Redirect to='/program'/>
+  detailsClickHandler= (e,program) => {
+console.log(e);
+
   }
 
   render() {
@@ -43,31 +42,27 @@ class Programs extends Component {
       // const pageShow= this.state.page==='programs' ? 'active' : 'in-active'
       
       return (
+        <div className='card col-3 mt-3'>
+        <img className="card-img-top" src={program.image} alt=''/>
+      <div className="card-body">
+
         <div key={index}>
-        {/* <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="https://img.icons8.com/color/96/000000/dumbbell.png" />
-          <Card.Body>
-            <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program}/>}/>
-            <Link to="Program" onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
-          </Card.Body>
-        </Card> */}
         
-          <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program}/>}/>
-          <Link to="Program" onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
+          <Route path='/program' render={(props) => <Program {...props} program={program}/>}/>
+          <Link to="Program" className='card-title'>{program.name}</Link>
         </div>
+        </div>
+        </div>
+        
       )
     })
 
-    // const program1= this.state.programs[0]
-    // console.log(program1);
-    // console.log(program1.name);
-    // const redirectShow= this.state.redirect ? 'in-active' : 'active'
 
     return (
-      <div>
+      <div className="container">
         <Router>
           {/* <Link className="nav-link" to="Program">{program}</Link> */}
-          <div>
+          <div className='row'>
             {program}
           </div>
         </Router> 
