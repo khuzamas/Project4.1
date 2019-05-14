@@ -1,0 +1,56 @@
+[{
+    "name" : "Barbell Bench Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Flat Bench Dumbbell Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Low-Incline Barbell Bench Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Machine Decline Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Seated Machine Chest Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Incline Bench Cable Fly",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Dips For Chest",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+},
+{
+    "name" : "Incline Dumbbell Press",
+    "sets": "4",
+    "repetition": "12",
+    "image": "https://via.placeholder.com/200",
+    "reward": "4"
+}]
