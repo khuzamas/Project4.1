@@ -1,0 +1,7 @@
+.in-active {
+    display: none;
+}
+
+.active {
+    display: initial;
+}
