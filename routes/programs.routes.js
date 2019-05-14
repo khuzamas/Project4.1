@@ -10,7 +10,7 @@ const Program = require('../models/program')
 // // @access Public
 router.get('/',(req,res) =>{
     Program.find()
-    .sort({ date: -1})
+    .populate({path: 'exercises', model: 'Exercise'})
     .then(programs => res.json(programs))
 })
 

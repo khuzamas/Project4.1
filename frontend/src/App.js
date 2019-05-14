@@ -171,8 +171,8 @@ class App extends Component {
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
-        <Route path='/profile' component={Profile}/>
-        <Route path='/programs' component={Programs}/>
+        <Route path='/profile' component={Profile} />
+        <Route path='/programs' render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/exercises' component={Exercises}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
         />

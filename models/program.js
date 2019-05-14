@@ -6,7 +6,8 @@ const programSchema= new Schema({
     description: {type: String, required: true},
     exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
     image: {type: String, required: true},
-    reward: {type: String}
+    reward: {type: String},
+    check: {type: Boolean, default: false}
 })
 
 

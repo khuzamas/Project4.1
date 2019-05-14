@@ -40,19 +40,10 @@ class Programs extends Component {
     
     const program = this.state.programs.map((program,index) =>{
       const redirectShow= this.state.redirect ? 'in-active' : 'active'
-      // const pageShow= this.state.page==='programs' ? 'active' : 'in-active'
-      
+
       return (
         <div key={index}>
-        {/* <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="https://img.icons8.com/color/96/000000/dumbbell.png" />
-          <Card.Body>
-            <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program}/>}/>
-            <Link to="Program" onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
-          </Card.Body>
-        </Card> */}
-        
-          <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program}/>}/>
+          <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/>
           <Link to="Program" onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
         </div>
       )
