@@ -9,24 +9,24 @@ const userSchema = new Schema({
  password : { type: String, required: true},
  dateofbirth: {
   type: Date
-},
-friend: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-icon: {type: String},
-heigh: {type: String},
-weight: {type: String},
-activity: {type: String},
-goal: {type: String},
-challenges: [{ type: Schema.Types.ObjectId, ref: 'Challenge' }],
-badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
-tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
-points: {
-  type: Number,
-  default: 0
-},
-date: {
-  type: Date,
-  default: Date.now
-}
+  },
+  friend: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  icon: {type: String},
+  heigh: {type: String},
+  weight: {type: String},
+  activity: {type: String},
+  goal: {type: String},
+  challenges: [{ type: Schema.Types.ObjectId, ref: 'Challenge' }],
+  badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
+  programs: [{ type: Schema.Types.ObjectId, ref: 'Program' }],
+  points: {
+    type: Number,
+    default: 0
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 })
 
 
