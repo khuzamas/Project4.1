@@ -12,19 +12,10 @@ import {
 
 export default class UserHome extends Component {
     state= {
-        check: false,
-        useCanvas: false
+        check: false
     }
-
-    checkHandler= () => {
-        console.log(this.state.check);
-        this.setState({check: !(this.state.check)})
-    }
-
-    
       
     render() {
-        const checkShow= this.state.check === false ? " inactive" : " is-active"
 
         const data = [
             {
@@ -52,34 +43,8 @@ export default class UserHome extends Component {
           
         return (
             <div className="user-home">
-            <Header />
-                {/* <div className="navbar">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="home">Home</a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="home">Programs</a>
-                        </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="home">Challenges</a>
-                        </li>
-                        <li className="nav-item active n-p">
-                            <a className="nav-link" href="Profile"><img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/></a>
-                        </li>
-                    </ul>
-                </div>  */}
 
                 <div className="body3">
-                    {/* <div className="tasks card">
-                        <div className="card-header">
-                            Daily Tasks
-                        </div>
-                        <div className="card-body">
-                            <td className="td img" onClick={() => this.checkHandler()} ><img src="https://img.icons8.com/cotton/64/000000/checkmark.png" alt="" className={"check"+checkShow}/></td>
-                            <td className="td">Mark</td>  
-                        </div>
-                    </div> */}
                     <Carousel>
                         <Carousel.Item>
                             <img
@@ -89,7 +54,6 @@ export default class UserHome extends Component {
                             />
                             <Carousel.Caption className="caption">
                                 <a href="" className="p-title"><h3>First slide label</h3></a>
-                                {/* <Button variant="info">Go to Program</Button> */}
                                 <ProgressBar striped variant="info" now={60}  />
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -130,8 +94,6 @@ export default class UserHome extends Component {
                             </BarChart>
                         </div>
                     </div>
-                 
-
                 </div>
             </div>
         )
