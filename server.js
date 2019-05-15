@@ -6,6 +6,7 @@ require('dotenv').config();
 const express = require('express')
 const PORT = process.env.PORT || 4000
 const server = express()
+const cors = require('cors')
 
 
 const session = require('express-session')
@@ -17,11 +18,12 @@ const mongooseConnect = require('./config/mongodb')
 
 
 //allows json to be sent to via request express
+server.use(cors())
 server.use(express.json())
 
-//cors
-// const cors= require('cors')
-// server.use(cors())
+//method override
+// var methodOverride = require('method-override')
+// server.use(methodOverride('_method'))
 
 //create session for passport
 server.use(session({
@@ -42,7 +44,7 @@ server.use('/api/exercises',require('./routes/exercise.routes'))
 server.use('/api/badges',require('./routes/badges.routes'))
 server.use('/api/challenges',require('./routes/challenges.routes'))
 server.use('/api/users',require('./routes/users.routes'))
-
+// server.use('/Program', require('./routes/Program.routes'))
 
 
 //cannot find route
