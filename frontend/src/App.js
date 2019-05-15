@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import {
-  BrowserRouter as Router, Route, Link, withRouter, Redirect
+  BrowserRouter as Router, Route, Link, Redirect
 } from 'react-router-dom'
 import axios from 'axios'
 import { getToken, setToken, logout} from './services/auth'
 import jwt_decode from 'jwt-decode'
-
 import Login from './components/Login';
+import Signup from './components/Signup';
 import UserHome from './components/UserHome';
 import Home from './components/Home';
 import Programs from './components/Programs';
 import Exercises from './components/Exercises';
 import Profile from './components/Profile';
 import Navbar from './components/Layouts/Navbar'
-
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
 import AddGame from './components/AddGame';
+import Challenges from './components/Challenges';
 
 /*------
   Since JWT requires token to be passed in header
@@ -49,7 +49,7 @@ class App extends Component {
       this.setState(data)
       console.log("decoded: ",decode)
     }else{
-      return (<Redirect to='/login' />)
+      return <Redirect to='/login' />
     }
   }
 
@@ -127,13 +127,30 @@ class App extends Component {
     data.games = []
 
     this.setState(data)
-  }
-  registerHandler = (e) => {
-    axios.post('/api/auth/',{})
-    .then( response => {
 
+  }
+
+
+  registerHandler = (e) => {
+    e.preventDefault();
+    console.log("got here")
+    axios.post('/api/auth/register',{ username: this.state.email,email: this.state.email, password: this.state.password})
+    .then( response => {
+      console.log("hello",response)
+      // if(response.data.token){
+      //   setToken(response.data.token)
+
+      //   let data = {...this.state}
+      //   data.user = response.data.user
+      //   data.isAuthenticated = true
+      //   data.hasError = false
+
+      //   this.setState(data)
+
+      // }
+      
     })
-    .catch()
+    .catch(err => console.log(err))
   }
 
   displayGames = ()=>{
@@ -145,12 +162,13 @@ class App extends Component {
 
 
 
+
   
   render(){
     //if not logged in show login page
-    const showLogin = (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} /> : null
+    // const showLogin = (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} /> : null
       // show logout button
-    const Logout = (this.state.isAuthenticated) ? <Button onClick={this.logout}>Logout</Button> : null
+    const Logout = (this.state.isAuthenticated) ? <Link to="/"><Button onClick={this.logout}>Logout</Button></Link> : null
      //show games when logged in
     const GameView = (this.state.isAuthenticated) ? <Row>
       <Col md={6}>
@@ -171,10 +189,13 @@ class App extends Component {
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
-        <Route path='/profile' component={Profile} />
+        <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
         <Route path='/programs' render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/exercises' component={Exercises}/>
+        <Route path='/challenges' component={Challenges}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
+        />
+        <Route path='/signup' render={(props) => <Signup {...props} change={this.changeHandler} register={this.registerHandler}/>}
         />
         {/* <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>

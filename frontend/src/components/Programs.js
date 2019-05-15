@@ -29,6 +29,10 @@ class Programs extends Component {
     })
   }
 
+  filterProgram = (p_id) =>{
+    return this.state.programs.filter(el => el.id === p_id)
+  }
+
   detailsClickHandler= (program) => {
     this.props.history.push('/program')
     // return <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} />}/>
@@ -36,15 +40,15 @@ class Programs extends Component {
   }
 
   render() {
-    // console.log(this.state.programs);
+    console.log(this.state.programs);
     
     const program = this.state.programs.map((program,index) =>{
       const redirectShow= this.state.redirect ? 'in-active' : 'active'
-
+        console.log(program)
       return (
         <div key={index}>
-          <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/>
-          <Link to="Program" onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
+          {/* <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/> */}
+          <Link to={`/Program/${program._id}`} onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
         </div>
       )
     })
@@ -57,6 +61,7 @@ class Programs extends Component {
     return (
       <div>
         <Router>
+        <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={this.state.programs} user={this.props.user}/>}/>
           {/* <Link className="nav-link" to="Program">{program}</Link> */}
           <div>
             {program}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './Layouts/Header';
 import '../App.css';
 import './UserHome.css'
 import Carousel from 'react-bootstrap/Carousel'
@@ -6,6 +7,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
+// ==
 
 
 export default class UserHome extends Component {

@@ -35,12 +35,19 @@ export class Profile extends Component {
       { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
       { name: 'Group E', value: 278 }, { name: 'Group F', value: 189 },
     ];
+
+
+    // const programs = this.props.user.programs.map(program => {
+    //   return ( 
+    //     <div>{program.name}</div>
+    //   )
+    // })
         
     return (
       <div className="user-profile">
         <div className="user">
           <img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/>
-          <h3>USER NAME</h3>
+          <h3> {this.props.user.username}</h3>
         </div>
 
         <div className="row user-info">
@@ -73,6 +80,7 @@ export class Profile extends Component {
           </div>
           <div className="col-4 user-info-item programs">
             <h4>PROGRAMS</h4>
+            {/* {programs} */}
             <div className="program">
               <div className="program-img">
                 <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
