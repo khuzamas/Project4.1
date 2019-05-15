@@ -7,7 +7,7 @@ export default class Program extends Component {
   state= {
     user: this.props.user,
     userPrograms: this.props.user.programs,
-    program : {}
+    program : this.props.program
   }
   
   filterProgram = (p_id) =>{
@@ -20,13 +20,16 @@ export default class Program extends Component {
 
   startProgramClick= () => {
     console.log('clicked');
+    // console.log('user');
+    // console.log(this.state.user);
+    console.log(this.state.program._id)
+    this.setState({userPrograms: this.state.user.programs.push(this.state.program._id)})
     
-    this.setState({userPrograms: this.state.user.programs.push(this.props.program)})
-    console.log(this.props.user);
+    // alert(this.state.user._id)
 
-    axios.patch(`api/users/${this.state.user._id}`, {programs: this.state.userPrograms})
+    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, {programs: this.state.userPrograms})
     .then(res => {
-      console.log(res.data);
+      console.log(res);
     })
     .catch(err => console.log(err))
   }
@@ -43,11 +46,11 @@ export default class Program extends Component {
   }
 
   render() {
-    console.log('program');
-    console.log("pro",this.props.program)
-    console.log("user program",this.props.user.programs)
+    // console.log('program');
+    // console.log("pro",this.props.program)
+    // console.log("user program",this.props.user.programs)
     console.log("user",this.props.user);
-    console.log("params id", this.props.match.params.id);
+    // console.log("params id", this.props.match.params.id);
 
     // const exercises= this.props.program.exercises.map((exercise, index) => {
     //   const style= {
@@ -55,7 +58,6 @@ export default class Program extends Component {
     //   }
     //   return (
     //     <div className="index">
-    //     Ebere!!!
     //         <Card className="card" style={style}>
     //           <Card.Img variant="top" src={exercise.image} className="exercise-img"/>
     //           <Card.Body>
