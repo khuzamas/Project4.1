@@ -45,9 +45,17 @@ class App extends Component {
     if(getToken()){
       let decode = jwt_decode(getToken())
       let data = {...this.state}
-      data.user = decode
-      data.isAuthenticated = true
-      this.setState(data)
+      
+      axios.get(`/api/user/${decode._id}`)
+      .then(res => {
+        console.log("axx",res.data);
+        
+        data.user = res.data
+        data.isAuthenticated = true
+        this.setState(data)
+      })
+      
+      // this.setState(data)
       console.log("decoded: ",decode)
     }else{
       return <Redirect to='/login' />
