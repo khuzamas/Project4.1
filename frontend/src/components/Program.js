@@ -12,7 +12,7 @@ export default class Program extends Component {
   
   filterProgram = (p_id) =>{
     let filtered = this.props.program.filter(el => el._id === p_id)
-    console.log("filter",filtered)
+    // console.log("filter",filtered)
     let data = {...this.state}
     data.program = filtered[0]
     this.setState(data)
@@ -20,66 +20,72 @@ export default class Program extends Component {
 
   startProgramClick= () => {
     console.log('clicked');
-    // console.log('user');
-    // console.log(this.state.user);
-    console.log(this.state.program._id)
+
     this.setState({userPrograms: this.state.user.programs.push(this.state.program._id)})
     
-    // alert(this.state.user._id)
 
     axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, {programs: this.state.userPrograms})
     .then(res => {
-      console.log(res);
+      console.log(res.data);
     })
     .catch(err => console.log(err))
   }
 
   finishProgramClick= () => {
     console.log('finish clicked');
-    this.setState({})
+
+    var index;
+
+    this.state.user.programs.forEach((program, indexof) => {
+      if (program===this.state.program._id) {
+        index= indexof
+      }
+    })
+
+    this.state.user.programs.splice(index, 1);
+    const points= this.state.user.points + parseInt(this.state.program.reward)
+    
+    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, {programs: this.state.user.programs, points: points})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err))
   }
 
   componentDidMount(){
-    // console.log(this.props.user.programs)
-    // console.log(this.props.programs)
     this.filterProgram(this.props.match.params.id)
   }
 
   render() {
-    // console.log('program');
-    // console.log("pro",this.props.program)
-    // console.log("user program",this.props.user.programs)
-    console.log("user",this.props.user);
-    // console.log("params id", this.props.match.params.id);
 
-    // const exercises= this.props.program.exercises.map((exercise, index) => {
-    //   const style= {
-    //     display: "inline-block"
-    //   }
-    //   return (
-    //     <div className="index">
-    //         <Card className="card" style={style}>
-    //           <Card.Img variant="top" src={exercise.image} className="exercise-img"/>
-    //           <Card.Body>
-    //             <Card.Title>{exercise.name}</Card.Title>
-    //             <Card.Text>
-    //               sets: {exercise.sets}, repetition: {exercise.repetition}
-    //             </Card.Text>
-    //           </Card.Body>
-    //         </Card>
-    //     </div>
-    //   )
-    // })
+    const exercises= this.props.program[0].exercises.map((exercise, index) => {
+      const style= {
+        display: "inline-block"
+      }
+      return (
+        <div className="index">
+            <Card className="card" style={style}>
+              <Card.Img variant="top" src={exercise.image} className="exercise-img"/>
+              <Card.Body>
+                <Card.Title>{exercise.name}</Card.Title>
+                <Card.Text>
+                  sets: {exercise.sets}, repetition: {exercise.repetition}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+        </div>
+      )
+    })
     
     return (
       <div>
         <h2>{this.state.program.name}</h2>
         <button className="btn btn-info" onClick={() => this.startProgramClick()}>Start This Program</button>
-        <button className="btn btn-info">Finished This Program</button>
+        <button className="btn btn-info" onClick={() => this.finishProgramClick()}>Finished This Program</button>
         <p>Description: {this.state.program.description}</p>
         <p>Reward: {this.state.program.reward}</p>
         <p>Included excercises:</p>
-        {/* {exercises} */}
+        {exercises}
       </div>
     )
   }
