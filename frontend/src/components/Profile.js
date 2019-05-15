@@ -66,33 +66,17 @@ export class Profile extends Component {
         </div>
 
         <div className="row user-info">
-          {/* <div className="col-4 user-info-item badges">
+          <div className="col-4 user-info-item badges">
             <h4>BADGES</h4>
             <div className="badge">
               <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
+                <h3 className="badge1">3</h3>
               </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
+             
             </div>
-            <div className="badge">
-              <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
-              </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
-            </div>
-            <div className="badge">
-              <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
-              </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
-            </div>
-          </div> */}
+           
+        
+          </div>
           <div className="col-4 user-info-item programs">
             <h4>PROGRAMS</h4>
             {programName}
