@@ -1,60 +1,74 @@
 /* user home */
 .nav-link {
-    display: block;
-    color: white;
-    font-size: 20px;
-  }
-  
-  a:hover {
-    color:gray;
-    text-decoration: none;
-  }
-  
-  /* A link that is selected */
-  a:active {
-    font-weight: bold;
-  }
-  
-  .navbar-nav {
-    flex-direction: row;
-  }
-  
-  .nav-item {
-    padding-right: 10px;
-    padding-top: 10px;
-  }
-  
-  .chart {
-    text-align: center;
-  }
-  
-  .weekly-progress {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px;
-  }
-  
-  .topic {
-    margin-bottom: 15px;
-  }
-  
-  .user-home {
-    color: white;
-    font-family: "Garamond";
-  }
-  
+  display: block;
+  color: white;
+  font-size: 20px;
+}
 
-  
-  .caption {
-    top: 140px;
-    text-align: -webkit-center;
-  }
-  
-  .p-title {
-    color: white;
-  }
-  
-  .progress {
-    width: 200px;
-  }
+a:hover {
+  color:gray;
+  text-decoration: none;
+}
+
+/* A link that is selected */
+a:active {
+  font-weight: bold;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-item {
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.chart {
+  text-align: center;
+}
+
+.weekly-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+.topic {
+  margin-bottom: 15px;
+}
+
+.user-home {
+  color: white;
+  font-family: "Garamond";
+}
+
+
+
+.caption {
+  top: 140px;
+  text-align: -webkit-center;
+}
+
+.p-title {
+  color: black;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.progress {
+  width: 200px;
+}
+
+.active {
+  display: initial;
+}
+
+.in-active{
+  display: none;
+}
+
+/* .progress-bar {
+  font-size: 12px;
+} */
