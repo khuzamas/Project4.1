@@ -40,11 +40,10 @@ class Programs extends Component {
   }
 
   render() {
-    console.log(this.state.programs);
-    
+
     const program = this.state.programs.map((program,index) =>{
       const redirectShow= this.state.redirect ? 'in-active' : 'active'
-        console.log(program)
+
       return (
         <div key={index}>
           {/* <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/> */}

@@ -28,4 +28,12 @@ router.put('/:id', (req, res) => {
   })
 })
 
+//delete
+// router.put('/:id',(req,res) =>{
+//   User.findByIdAndUpdate(req.params.id, req.body)
+//   .then((user) => {
+//     res.json(user)
+//   })
+// })
+
 module.exports = router
