@@ -7,12 +7,14 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
+import { log } from 'util';
 // ==
 
 
 export default class UserHome extends Component {
     state= {
-        check: false
+        check: false,
+        user: this.props.user
     }
       
     render() {
@@ -40,6 +42,13 @@ export default class UserHome extends Component {
               name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
             },
         ];
+
+        console.log('home user');
+        
+        console.log(this.props.user.programs);
+        console.log('home state user');
+        console.log(this.state.user);
+        
           
         return (
             <div className="user-home">
@@ -49,6 +58,7 @@ export default class UserHome extends Component {
                         <Carousel.Item>
                             <img
                             className="d-block w-100"
+                            
                             src="https://www.officemax.co.nz/Images/ProductImages/2346419.jpg"
                             alt="First slide"
                             />

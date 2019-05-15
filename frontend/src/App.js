@@ -45,11 +45,17 @@ class App extends Component {
     if(getToken()){
       let decode = jwt_decode(getToken())
       let data = {...this.state}
-      console.log("hello", decode);
       
-      data.user = decode
-      data.isAuthenticated = true
-      this.setState(data)
+      axios.get(`/api/user/${decode._id}`)
+      .then(res => {
+        console.log("axx",res.data);
+        
+        data.user = res.data
+        data.isAuthenticated = true
+        this.setState(data)
+      })
+      
+      // this.setState(data)
       console.log("decoded: ",decode)
     }else{
       return <Redirect to='/login' />
@@ -191,7 +197,7 @@ class App extends Component {
         <Navbar/>
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
-        <Route path='/userhome' component={UserHome}/>
+        <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user}/>}/>
         <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
         <Route path='/programs' render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/exercises' component={Exercises}/>

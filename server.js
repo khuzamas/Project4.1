@@ -44,6 +44,7 @@ server.use('/api/exercises',require('./routes/exercise.routes'))
 server.use('/api/badges',require('./routes/badges.routes'))
 server.use('/api/challenges',require('./routes/challenges.routes'))
 server.use('/api/users',require('./routes/users.routes'))
+server.use('/api/user',require('./routes/user.routes'))
 // server.use('/Program', require('./routes/Program.routes'))
 
 
