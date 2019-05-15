@@ -44,13 +44,17 @@ export default class Program extends Component {
     })
 
     this.state.user.programs.splice(index, 1);
-    const points = this.state.user.points + parseInt(this.state.program.reward)
 
-    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, { programs: this.state.user.programs, points: points })
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => console.log(err))
+    console.log(this.props.user.points);
+    
+    const points= this.state.user.points + parseInt(this.state.program.reward)
+    
+    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, {programs: this.state.user.programs, points: points})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err))
+
   }
 
   componentDidMount() {
@@ -59,24 +63,6 @@ export default class Program extends Component {
 
   render() {
 
-    // const allExercises = this.state.program.exercises.map((exercise, index) => {
-    //   const style= {
-    //     display: "inline-block"
-    //   }
-    //   return (
-    //     <div className="index">
-    //         <Card className="card" style={style}>
-    //           <Card.Img variant="top" src={exercise.image} className="exercise-img"/>
-    //           <Card.Body>
-    //             <Card.Title>{exercise.name}</Card.Title>
-    //             <Card.Text>
-    //               sets: {exercise.sets}, repetition: {exercise.repetition}
-    //             </Card.Text>
-    //           </Card.Body>
-    //         </Card>
-    //     </div>
-    //   )
-    // })
 
     return (
       <div>

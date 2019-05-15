@@ -25,10 +25,13 @@ function Navbar() {
               </li>
           
           </ul>
-          <ul>
-          <li className="nav-item ml-auto">
-                <Link className="nav-link" to="Profile"><img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/></Link>
-              </li>
+          <ul className="navbar-nav">
+            <li>
+              <img src="https://img.icons8.com/color/48/000000/expensive-2.png" className="nav-link"/>
+            </li>
+            <li className="nav-item ml-auto">
+              <Link className="nav-link" to="Profile"><img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/></Link>
+            </li>
           </ul>
         </div> 
     
