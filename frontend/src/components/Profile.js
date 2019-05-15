@@ -92,7 +92,7 @@ export class Profile extends Component {
         
           </div>
           <div className="col-sm user-info-item stats">
-            <h4>STATS</h4>
+            <h4 style={{marginLeft: "135px"}}>STATISTICS</h4>
             <div className="weight-chart">
               <LineChart
                 width={400}

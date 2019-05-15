@@ -10,21 +10,21 @@ a:hover {
 }
 
 /* A link that is selected */
-a:active {
+/* a:active {
   font-weight: bold;
-}
+} */
 
-.navbar-nav {
+/* .navbar-nav {
   flex-direction: row;
-}
+} */
 
-.nav-item {
+/* .nav-item {
   font-family: "Garamond";
   padding-right: 10px;
   padding-top: 10px;
-}
+} */
 
 .n-p {
-  margin-left: 1070px;
-  padding-top: 0;
+  /* margin-left: 1070px;
+  padding-top: 0; */
 }
