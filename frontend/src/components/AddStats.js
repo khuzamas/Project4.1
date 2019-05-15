@@ -6,11 +6,11 @@ import axios from "axios";
 class AddStats extends React.Component {
  
     state = {
-    name: "",
-    description:"",
-    reward:"",
-    level:"",
-    category:"",
+        heigh: "",
+        weight: "",
+        activity: "",
+        goal: "",
+        date: "",
     modal: false
     };
 

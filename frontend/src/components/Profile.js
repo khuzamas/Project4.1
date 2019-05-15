@@ -6,9 +6,11 @@ import {
 import {
   PieChart, Pie,
 } from 'recharts';
+import AddStats from './AddStats';
+import UserInfo from './UserInfo';
 
 export class Profile extends Component {
-
+  
 
   render() {
     const data = [
@@ -54,7 +56,7 @@ export class Profile extends Component {
       )
     })
   }else{
-    var programName = 'No programs'
+     programName = 'No programs'
   }
 
     
@@ -68,11 +70,17 @@ export class Profile extends Component {
  
         <div className="user">
           <img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/>
-          <h3> {this.props.user.username}</h3>
+          <div >
+          <h3 className="d-inline-block" > {this.props.user.username} </h3>
+          
+          <div className="d-inline-block"><UserInfo userinfo/></div>
+          </div>
+          <AddStats/>
+          
         </div>
 
         <div className="row user-info">
-        <div class="container">
+        <div className="container">
   <div class="row">
           <div className="col-lg user-info-item badges">
             <h4>BADGES</h4>
@@ -80,7 +88,16 @@ export class Profile extends Component {
               <div className="badge-img">
                 <h3 className="badge1">3</h3>
               </div>
-             
+              
+              
+            </div>
+            <h4 style={{marginTop: "30px"}}>CURRENCY</h4>
+            <div className="currency">
+              <div className="currency-img">
+                <h3 className="currency1">{this.props.user.points}</h3>
+              </div>
+              
+              
             </div>
            
         
