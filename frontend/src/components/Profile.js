@@ -38,12 +38,22 @@ export class Profile extends Component {
       { name: 'Group E', value: 278 }, { name: 'Group F', value: 189 },
     ];
 
-
-    // const programName = this.state.programs.map(program => {
-    //   return ( 
-    //     <div>{program.name}</div>
-    //   )
-    // })
+    if (this.props.user.programs) {
+    var programName = this.props.user.programs.map(program => {
+      return ( 
+        <div><div className="program">
+        <div className="program-img">
+          <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
+        </div>
+        <div className="program-name">
+          <h3>{program.name}</h3>
+        </div>
+      </div></div>
+      )
+    })
+  }else{
+    var programName = 'No programs'
+  }
 
     
     
@@ -56,7 +66,7 @@ export class Profile extends Component {
         </div>
 
         <div className="row user-info">
-          <div className="col-4 user-info-item badges">
+          {/* <div className="col-4 user-info-item badges">
             <h4>BADGES</h4>
             <div className="badge">
               <div className="badge-img">
@@ -82,34 +92,12 @@ export class Profile extends Component {
                 <h3>Badge Name</h3>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col-4 user-info-item programs">
             <h4>PROGRAMS</h4>
-            {/* {programName} */}
-            <div className="program">
-              <div className="program-img">
-                <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
-              </div>
-              <div className="program-name">
-                <h3>program Name</h3>
-              </div>
-            </div>
-            <div className="program">
-              <div className="program-img">
-                <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
-              </div>
-              <div className="program-name">
-                <h3>program Name</h3>
-              </div>
-            </div>
-            <div className="program">
-              <div className="program-img">
-                <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
-              </div>
-              <div className="program-name">
-                <h3>program Name</h3>
-              </div>
-            </div>
+            {programName}
+            
+        
           </div>
           <div className="col-4 user-info-item stats">
             <h4>STATS</h4>

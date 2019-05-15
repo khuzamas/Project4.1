@@ -47,7 +47,7 @@ export default class Program extends Component {
 
   render() {
     // console.log('program');
-    // console.log("pro",this.props.program)
+    console.log("pro",this.state.program)
     // console.log("user program",this.props.user.programs)
     console.log("user",this.props.user);
     // console.log("params id", this.props.match.params.id);
