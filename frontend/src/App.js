@@ -36,7 +36,8 @@ class App extends Component {
     user : "",
     errorMsg : '',
     isAuthenticated : false,
-    hasError : false
+    hasError : false,
+    
   }
 
 

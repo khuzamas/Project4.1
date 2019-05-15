@@ -32,7 +32,7 @@ render() {
           )
 
       })
-    return (<div>
+    return (<div className="card-deck">
       {challenge}
         {/* <Challenge/> */}
         <AddChallenge/>
