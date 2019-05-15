@@ -13,6 +13,7 @@ const passport = require('passport');
 
 router.get('/', (request, res)=>{
   User.find()
+  .populate('programs')
   .then(users => res.json(users))
   .catch(err => {
    response.send({message : err})

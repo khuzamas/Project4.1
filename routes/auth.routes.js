@@ -79,6 +79,7 @@ router.post('/login', (request, response) => {
           }
           // generate a signed json web token with the contents of user object and return it in the response
           user.password = '' //remove password
+          user.populate('programs')
           console.log(user)
           const token = jwt.sign(user.toJSON(), JWTSecret, { expiresIn: 60 * 60 });
           return response.status(200).json({user, token});

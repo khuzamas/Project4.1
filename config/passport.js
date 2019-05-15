@@ -16,7 +16,12 @@ passport.use(new LocalStrategy({
   (email, password, done) => {
     User.findOne({
       email: email
-    }, function (err, user) {
+    })
+    .populate({path: 'programs',
+    // Get friends of friends - populate the 'friends' array for every friend
+    populate: { path: 'exercises' }
+  })
+    .exec(function (err, user) {
 
       if (err) {
         return done(err);
@@ -34,7 +39,8 @@ passport.use(new LocalStrategy({
         return done(null, user);
       })
 
-    });
+    })
+  ;
   }
 ));
 
@@ -46,6 +52,7 @@ passport.use(new JWTStrategy({
 function (jwtPayload, done) {
 
   return User.findById(jwtPayload._id)
+  .populate('programs')
     .then(user => {
       return done(null, user);
     })

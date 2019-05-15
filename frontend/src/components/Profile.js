@@ -8,6 +8,8 @@ import {
 } from 'recharts';
 
 export class Profile extends Component {
+
+
   render() {
     const data = [
       {
@@ -37,11 +39,14 @@ export class Profile extends Component {
     ];
 
 
-    // const programs = this.props.user.programs.map(program => {
+    // const programName = this.state.programs.map(program => {
     //   return ( 
     //     <div>{program.name}</div>
     //   )
     // })
+
+    
+    
         
     return (
       <div className="user-profile">
@@ -80,7 +85,7 @@ export class Profile extends Component {
           </div>
           <div className="col-4 user-info-item programs">
             <h4>PROGRAMS</h4>
-            {/* {programs} */}
+            {/* {programName} */}
             <div className="program">
               <div className="program-img">
                 <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>
