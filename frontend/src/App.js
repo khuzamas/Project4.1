@@ -45,6 +45,8 @@ class App extends Component {
     if(getToken()){
       let decode = jwt_decode(getToken())
       let data = {...this.state}
+      console.log("hello", decode);
+      
       data.user = decode
       data.isAuthenticated = true
       this.setState(data)
