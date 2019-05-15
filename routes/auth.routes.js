@@ -25,6 +25,7 @@ router.get('/', (request, response, next) => {
         return response.json({ message: info.message })
       }else{
         User.find({})
+        .populate('programs')
         .then((user)=>{
           response.json({ user: user });
         })
@@ -47,16 +48,16 @@ router.post('/register', (request, response)=>{
 
   let user = new User(data)
   user.save()
-  response.send('cool')
-  // .then(()=> {
+  .then((u)=> {
+    // response.send('cool')
   //   const token = jwt.sign(user.toJSON(), JWTSecret, { expiresIn: 60 * 60 });
   //   console.log(token);
     
-  //   return response.status(200).json({user, token});
-  // })
-  // .catch(err =>{
-  //   response.status(401).json({ message : "You are not Allowed to Register"})
-  // })
+    return response.status(200).json({u});
+  })
+  .catch(err =>{
+    response.status(401).json({ message : "You are not Allowed to Register", err: err})
+  })
 
 })
 

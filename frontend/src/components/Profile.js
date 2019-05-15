@@ -36,6 +36,12 @@ export class Profile extends Component {
       { name: 'Group E', value: 278 }, { name: 'Group F', value: 189 },
     ];
 
+
+    // const programs = this.props.user.programs.map(program => {
+    //   return ( 
+    //     <div>{program.name}</div>
+    //   )
+    // })
         
     return (
       <div className="user-profile">
@@ -74,6 +80,7 @@ export class Profile extends Component {
           </div>
           <div className="col-4 user-info-item programs">
             <h4>PROGRAMS</h4>
+            {/* {programs} */}
             <div className="program">
               <div className="program-img">
                 <img src="https://img.icons8.com/cotton/96/000000/trainers.png" alt=""/>

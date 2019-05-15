@@ -29,40 +29,41 @@ class Programs extends Component {
     })
   }
 
-  detailsClickHandler= (e,program) => {
-console.log(e);
+  filterProgram = (p_id) =>{
+    return this.state.programs.filter(el => el.id === p_id)
+  }
 
+  detailsClickHandler= (program) => {
+    this.props.history.push('/program')
+    // return <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} />}/>
+    // return <Redirect to='/program'/>
   }
 
   render() {
-    // console.log(this.state.programs);
+    console.log(this.state.programs);
     
     const program = this.state.programs.map((program,index) =>{
       const redirectShow= this.state.redirect ? 'in-active' : 'active'
-      // const pageShow= this.state.page==='programs' ? 'active' : 'in-active'
-      
+        console.log(program)
       return (
-        <div className='card col-3 mt-3'>
-        <img className="card-img-top" src={program.image} alt=''/>
-      <div className="card-body">
-
         <div key={index}>
-        
-          <Route path='/program' render={(props) => <Program {...props} program={program}/>}/>
-          <Link to="Program" className='card-title'>{program.name}</Link>
+          {/* <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/> */}
+          <Link to={`/Program/${program._id}`} onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
         </div>
-        </div>
-        </div>
-        
       )
     })
 
+    // const program1= this.state.programs[0]
+    // console.log(program1);
+    // console.log(program1.name);
+    // const redirectShow= this.state.redirect ? 'in-active' : 'active'
 
     return (
-      <div className="container">
+      <div>
         <Router>
+        <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={this.state.programs} user={this.props.user}/>}/>
           {/* <Link className="nav-link" to="Program">{program}</Link> */}
-          <div className='row'>
+          <div>
             {program}
           </div>
         </Router> 

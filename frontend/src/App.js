@@ -19,6 +19,7 @@ import Navbar from './components/Layouts/Navbar'
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
 import AddGame from './components/AddGame';
+import Challenges from './components/Challenges';
 
 /*------
   Since JWT requires token to be passed in header
@@ -135,6 +136,7 @@ class App extends Component {
 
   registerHandler = (e) => {
     e.preventDefault();
+    console.log("got here")
     axios.post('/api/auth/register',{ username: this.state.email,email: this.state.email, password: this.state.password})
     .then( response => {
       console.log("hello",response)
@@ -191,9 +193,12 @@ class App extends Component {
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
         <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
-        <Route path='/programs' component={Programs}/>
+        <Route path='/programs' render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/exercises' component={Exercises}/>
+        <Route path='/challenges' component={Challenges}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
+        />
+        <Route path='/signup' render={(props) => <Signup {...props} change={this.changeHandler} register={this.registerHandler}/>}
         />
         {/* <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>

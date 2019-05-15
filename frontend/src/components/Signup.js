@@ -3,7 +3,7 @@ import React from 'react'
 const Signup = (props) => {
     return (
         <div className="card">
-         <form className="card-body">
+         {/* <form className="card-body" > */}
          <div className="row mb-3">
         
         <div className="col">
@@ -35,8 +35,8 @@ const Signup = (props) => {
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" className="btn btn-primary" onClick={props.registerHandler}>Sign Up</button>
-      </form>
+        <button type="submit" className="btn btn-primary" onClick={props.register}>Sign Up</button>
+      {/* </form> */}
       </div>
         
     
