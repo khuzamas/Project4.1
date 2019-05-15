@@ -60,6 +60,7 @@ export class Profile extends Component {
         
     return (
       <div className="user-profile">
+      
         <div className="user">
           <img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/>
           <h3> {this.props.user.username}</h3>
