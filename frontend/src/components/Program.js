@@ -22,6 +22,11 @@ export default class Program extends Component {
     .catch(err => console.log(err))
   }
 
+  finishProgramClick= () => {
+    // console.log('finish clicked')
+    // this.setState()
+  }
+
   render() {
     console.log('program');
     // console.log(this.props.user);
@@ -50,7 +55,7 @@ export default class Program extends Component {
       <div>
         <h2>{this.props.program.name}</h2>
         <button className="btn btn-info" onClick={() => this.startProgramClick()}>Start This Program</button>
-        <button></button>
+        <button className="btn btn-info">Finished This Program</button>
         <p>Description: {this.props.program.description}</p>
         <p>Reward: {this.props.program.reward}</p>
         <p>Included excercises:</p>
