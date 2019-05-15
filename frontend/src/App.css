@@ -44,3 +44,7 @@
   height: 350px;
 }
 
+.shadow{
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}

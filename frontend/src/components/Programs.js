@@ -14,58 +14,61 @@ class Programs extends Component {
     redirect: false
   }
 
-  componentDidMount(){
+  componentDidMount() {
     axios.get('/api/programs')
-    .then(res => {
-      this.setState({programs: res.data})
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        this.setState({ programs: res.data })
+      })
+      .catch(err => console.log(err))
   }
 
-  setRedirect= () => {
+  setRedirect = () => {
     this.setState({
       page: 'program',
       redirect: true
     })
   }
 
-  filterProgram = (p_id) =>{
+  filterProgram = (p_id) => {
     return this.state.programs.filter(el => el.id === p_id)
   }
 
-  detailsClickHandler= (program) => {
-    this.props.history.push('/program')
-    // return <Route path='/program' render={(props) => <Program {...props} isAuthed={true} program={program} />}/>
-    // return <Redirect to='/program'/>
-  }
 
   render() {
 
-    const program = this.state.programs.map((program,index) =>{
-      const redirectShow= this.state.redirect ? 'in-active' : 'active'
+    const program = this.state.programs.map((program, index) => {
+      const redirectShow = this.state.redirect ? 'in-active' : 'active'
 
       return (
-        <div key={index}>
-          {/* <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={program} user={this.props.user}/>}/> */}
-          <Link to={`/Program/${program._id}`} onClick={()=>this.setRedirect()} className={redirectShow}><h3>{program.name}</h3></Link>
+        
+        <div className="col-lg-4 col-md-6 col-sm-12  mb-3">
+        <div key={index} className="card ">
+        <img class="card-img-top" src={program.image} alt="Card image"/>
+       
+        <div className="card-body">
+              <Link to={`/Program/${program._id}`} onClick={() => this.setRedirect()} className={redirectShow}  >
+                <h6 className="card-title">{program.name}</h6>
+              </Link>
+              <p class="card-text">{program.description}</p>
+              </div>
+              
+              </div>
         </div>
+        
       )
     })
 
-    // const program1= this.state.programs[0]
-    // console.log(program1);
-    // console.log(program1.name);
-    // const redirectShow= this.state.redirect ? 'in-active' : 'active'
+
 
     return (
-      <div>
+      <div className='container mt-5'>
         <Router>
-        <Route path='/program/:id' render={(props) => <Program {...props} isAuthed={true} program={this.state.programs} user={this.props.user}/>}/>
-          {/* <Link className="nav-link" to="Program">{program}</Link> */}
-          <div>
+          <Route path='/program/:id' render={(props) => <Program {...props} program={this.state.programs} user={this.props.user} />} />
+
+          <div className="row">
             {program}
           </div>
-        </Router> 
+        </Router>
       </div>
     )
   }
