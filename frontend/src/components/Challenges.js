@@ -26,6 +26,7 @@ render() {
 
     const challenge = this.state.challenges.map((challenge,index) =>{
         return (
+            
             // <div> {this.state.challenges[0].name}</div>
               <Challenge challenge={challenge}/>
           )
@@ -33,7 +34,7 @@ render() {
       })
     return (<div>
       {challenge}
-
+        {/* <Challenge/> */}
         <AddChallenge/>
     
       </div>

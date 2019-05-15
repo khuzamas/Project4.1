@@ -5,7 +5,6 @@ import {
 import axios from 'axios'
 import { getToken, setToken, logout} from './services/auth'
 import jwt_decode from 'jwt-decode'
-
 import Login from './components/Login';
 import Signup from './components/Signup';
 import UserHome from './components/UserHome';
@@ -14,8 +13,6 @@ import Programs from './components/Programs';
 import Exercises from './components/Exercises';
 import Profile from './components/Profile';
 import Navbar from './components/Layouts/Navbar'
-
-
 import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
 import AddGame from './components/AddGame';
