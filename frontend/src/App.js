@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  BrowserRouter as Router, Route, Link, Redirect
+  BrowserRouter as Router, Switch, Route, Link, Redirect
 } from 'react-router-dom'
 import axios from 'axios'
 import { getToken, setToken, logout} from './services/auth'
@@ -195,6 +195,7 @@ class App extends Component {
     return (
       <Router>
         <Navbar/>
+        <Switch>
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' component={UserHome}/>
@@ -206,6 +207,7 @@ class App extends Component {
         />
         <Route path='/signup' render={(props) => <Signup {...props} change={this.changeHandler} register={this.registerHandler}/>}
         />
+        </Switch>
         {/* <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
           

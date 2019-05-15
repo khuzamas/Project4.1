@@ -59,24 +59,6 @@ export default class Program extends Component {
 
   render() {
 
-    // const allExercises = this.state.program.exercises.map((exercise, index) => {
-    //   const style= {
-    //     display: "inline-block"
-    //   }
-    //   return (
-    //     <div className="index">
-    //         <Card className="card" style={style}>
-    //           <Card.Img variant="top" src={exercise.image} className="exercise-img"/>
-    //           <Card.Body>
-    //             <Card.Title>{exercise.name}</Card.Title>
-    //             <Card.Text>
-    //               sets: {exercise.sets}, repetition: {exercise.repetition}
-    //             </Card.Text>
-    //           </Card.Body>
-    //         </Card>
-    //     </div>
-    //   )
-    // })
 
     return (
       <div>
