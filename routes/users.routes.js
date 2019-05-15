@@ -20,7 +20,7 @@ router.get('/', (request, res)=>{
 })
 
 //update
-router.patch('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body)
   .then((user) => {
     res.json(user)
