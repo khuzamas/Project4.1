@@ -7,6 +7,7 @@ const express = require('express')
 const PORT = process.env.PORT || 4000
 const server = express()
 
+
 const session = require('express-session')
 //jwt and passports
 const jwt = require('jsonwebtoken')
@@ -17,6 +18,10 @@ const mongooseConnect = require('./config/mongodb')
 
 //allows json to be sent to via request express
 server.use(express.json())
+
+//cors
+// const cors= require('cors')
+// server.use(cors())
 
 //create session for passport
 server.use(session({
@@ -36,7 +41,7 @@ server.use('/api/programs',require('./routes/programs.routes'))
 server.use('/api/exercises',require('./routes/exercise.routes'))
 server.use('/api/badges',require('./routes/badges.routes'))
 server.use('/api/challenges',require('./routes/challenges.routes'))
-
+server.use('/api/users',require('./routes/users.routes'))
 
 
 

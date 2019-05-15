@@ -11,15 +11,20 @@ const passport = require('passport');
 
 // const passportHelper = require('../config/passport')
 
-router.get('/', (request, response)=>{
+router.get('/', (request, res)=>{
   User.find()
-  .then(users => {
-   response.send({message : "usershome"})
-  }).catch(err => {
+  .then(users => res.json(users))
+  .catch(err => {
    response.send({message : err})
   })
-  
 })
 
+//update
+router.patch('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+  .then((user) => {
+    res.json(user)
+  })
+})
 
 module.exports = router
