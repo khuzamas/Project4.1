@@ -44,13 +44,17 @@ export default class Program extends Component {
     })
 
     this.state.user.programs.splice(index, 1);
-    const points = this.state.user.points + parseInt(this.state.program.reward)
 
-    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, { programs: this.state.user.programs, points: points })
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => console.log(err))
+    console.log(this.props.user.points);
+    
+    const points= this.state.user.points + parseInt(this.state.program.reward)
+    
+    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, {programs: this.state.user.programs, points: points})
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err))
+
   }
 
   componentDidMount() {
