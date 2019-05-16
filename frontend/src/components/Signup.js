@@ -2,13 +2,14 @@ import React from 'react'
 
 const Signup = (props) => {
     return (
-        <div className="card">
-         {/* <form className="card-body" > */}
+      <div className="mt-5 row ">
+        <div className="card mx-auto">
+         <form className="card-body" >
          <div className="row mb-3">
         
         <div className="col">
         <label htmlFor="exampleInputEmail1">Username</label>
-          <input type="text" name='username'  onChange={props.change} className="form-control" placeholder="First name" />
+          <input type="text" name='username'  onChange={props.change} className="form-control" placeholder="Username" />
         </div>
     
       </div>
@@ -35,8 +36,9 @@ const Signup = (props) => {
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" className="btn btn-primary" onClick={props.register}>Sign Up</button>
-      {/* </form> */}
+        <button  className="btn btn-primary" onClick={props.register}>Sign Up</button>
+      </form>
+      </div>
       </div>
         
     

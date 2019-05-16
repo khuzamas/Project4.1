@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Row, CardText,CardTitle,CardImgOverlay,Card,Button,CardImg, Modal, ModalHeader, ModalBody, ModalFooter, Input,Col, Form, FormGroup, Label  } from 'reactstrap';
+import {CardText,CardTitle,CardImgOverlay,Card,CardImg, Col} from 'reactstrap';
 
 export default class Challenge extends Component {
   render() {

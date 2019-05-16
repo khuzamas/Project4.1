@@ -29,15 +29,16 @@ class Programs extends Component {
       return (
         
         <div className="col-lg-4 col-md-6 col-sm-12  mb-3">
-        <div key={index} className="card ">
-        <img class="card-img-top" src={program.image} alt="Card image"/>
+        <div key={index} className="card rounded-0">
+        <img className="card-img-top rounded-0" src={program.image} alt="Card image"/>
        
         <div className="card-body">
  
-              <Link to={`/Programs/${program._id}`} currentPath='/programs' >
+              <Link to={`/Programs/${program._id}`}>
               {program.name}
               </Link>
-              <p class="card-text">{program.description}</p>
+              <p className="card-text">{program.description}</p>
+              
               </div>
               
               </div>
@@ -50,6 +51,7 @@ class Programs extends Component {
 
     return (
       <div className='container mt-5'>
+          <h2 className="mb-3">All Programs:</h2>
           <div className="row">
             {program}
           </div>

@@ -4,8 +4,9 @@ import { Input, Col, FormGroup, Label, Button} from 'reactstrap'
 
 const Login = (props) => {
   return (
-    <>
-    <Col sm={3} md={4} className="mx-auto">
+
+    <Col sm={3} md={4} className=" mx-auto mt-5">
+    
      <FormGroup>
           <Label for="exampleEmail" sm={2}>Email</Label>
         <Input name="email" onChange={props.change} />
@@ -15,8 +16,9 @@ const Login = (props) => {
           <Input name="password" type="password" onChange={props.change} />
       </FormGroup>
       <Button onClick={props.login} color="primary" size="lg" block> Login </Button>
+      
      </Col>
-    </>
+
   )
 }
 
