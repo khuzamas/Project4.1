@@ -44,15 +44,15 @@ h4 {
 } */
 
 .weight-chart {
-    width: 400px;
+    width: 300px;
     height: 50px;
     /* text-align: -webkit-match-parent; */
     margin-right: 20px;
 }
 
 .pie-chart {
-    width: 400px;
-    height: 200px;
+    width: 300px;
+    height: 150px;
     /* text-align: -webkit-center; */
 }
 
@@ -63,5 +63,24 @@ h4 {
 .recharts-wrapper {
     /* margin: 100;
     padding: 0; */
-    width: 400px;
+    width: 300px;
+}
+.badge-img{
+    background-image: url("https://img.icons8.com/color/96/000000/prize.png");
+    width: 100px;
+    height: 100px;  
+    justify-content: center;
+    display: flex;
+}
+
+.badge1{
+    margin-top: 22px;
+}
+
+.user-profile{
+    background-color: #212D40;
+    color: white;
+    overflow: hidden;
+    height: 1440px
+  
 }

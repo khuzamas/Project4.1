@@ -13,22 +13,24 @@ export class Profile extends Component {
   render() {
     const data = [
       {
-        name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+        name: 'Mon', uv: 4000, pv: 2400, amt: 2400,
       },
       {
-        name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+        name: 'Tue', uv: 3000, pv: 1398, amt: 2210,
       },
       {
-        name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+        name: 'Wed', uv: 2000, pv: 9800, amt: 2290,
       },
       {
-        name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+        name: 'Thu', uv: 2780, pv: 3908, amt: 2000,
       },
       {
-        name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+        name: 'Fri', uv: 1890, pv: 4800, amt: 2181,
       },
       {
-        name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+        name: 'Sat', uv: 2390, pv: 3800, amt: 2500,
+      }, {
+        name: 'Sun', uv: 2390, pv: 3800, amt: 2500,
       },
     ];
 
@@ -59,48 +61,38 @@ export class Profile extends Component {
     
         
     return (
-      <div className="user-profile">
+      
+      <div className="user-profile  ">
+      
+   
+ 
         <div className="user">
           <img src={`${this.props.user.icon}`} alt=""/>
           <h3> {this.props.user.username}</h3>
         </div>
 
         <div className="row user-info">
-          {/* <div className="col-4 user-info-item badges">
+        <div class="container">
+  <div class="row">
+          <div className="col-lg user-info-item badges">
             <h4>BADGES</h4>
             <div className="badge">
               <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
+                <h3 className="badge1">3</h3>
               </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
+             
             </div>
-            <div className="badge">
-              <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
-              </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
-            </div>
-            <div className="badge">
-              <div className="badge-img">
-                <img src="https://img.icons8.com/color/96/000000/dumbbell.png" alt=""/>
-              </div>
-              <div className="badge-name">
-                <h3>Badge Name</h3>
-              </div>
-            </div>
-          </div> */}
-          <div className="col-4 user-info-item programs">
+           
+        
+          </div>
+          <div className="col-lg user-info-item programs">
             <h4>PROGRAMS</h4>
             {programName}
             
         
           </div>
-          <div className="col-4 user-info-item stats">
-            <h4>STATS</h4>
+          <div className="col-sm user-info-item stats">
+            <h4 style={{marginLeft: "135px"}}>STATISTICS</h4>
             <div className="weight-chart">
               <LineChart
                 width={400}
@@ -127,6 +119,8 @@ export class Profile extends Component {
           </div>
         </div>
       </div>
+      </div>
+</div>
     )
   }
 }
