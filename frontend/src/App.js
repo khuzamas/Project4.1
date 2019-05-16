@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  BrowserRouter as Router, Route, Link, Redirect
+  BrowserRouter as Router, Switch, Route, Link, Redirect
 } from 'react-router-dom'
 import axios from 'axios'
 import { getToken, setToken, logout} from './services/auth'
@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import UserHome from './components/UserHome';
 import Home from './components/Home';
 import Programs from './components/Programs';
+import Program from './components/Program';
 import Exercises from './components/Exercises';
 import Profile from './components/Profile';
 import Navbar from './components/Layouts/Navbar'
@@ -213,7 +214,11 @@ class App extends Component {
     
     return (
       <Router>
+
         <Navbar user={this.state.user}/>
+
+        <Switch>
+
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user} programs={this.state.user.programs}/>}/>
@@ -227,6 +232,7 @@ class App extends Component {
         />
         <Route path='/signup' render={(props) => <Signup {...props} change={this.changeHandler} register={this.registerHandler}/>}
         />
+        </Switch>
         {/* <Container>
           <Alert color="danger" isOpen={this.state.hasError} toggle={this.onDismiss} fade={false}>{this.state.errorMsg}</Alert>
           

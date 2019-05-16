@@ -40,4 +40,12 @@ router.delete('/:id',(req,res) =>{
     .catch(err => res.status(404).json({ success: false}))
 })
 
+
+// Get by ID
+router.get('/:id',(req,res) =>{
+    Program.findById(req.params.id)
+    .populate({path: 'exercises', model: 'Exercise'})
+    .then(program => res.json(program))
+})
+
 module.exports = router;
