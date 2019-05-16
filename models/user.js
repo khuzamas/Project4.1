@@ -11,7 +11,7 @@ const userSchema = new Schema({
   type: Date
   },
   friend: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  icon: {type: String},
+  icon: {type: String, default: "https://img.icons8.com/plasticine/96/000000/gender-neutral-user.png"},
   heigh: {type: String},
   weight: {type: String},
   activity: {type: String},

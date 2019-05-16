@@ -18,6 +18,7 @@ import {Container, Row, Button, Col, Alert} from 'reactstrap';
 import ShowGame from './components/ShowGame';
 import AddGame from './components/AddGame';
 import Challenges from './components/Challenges';
+import Store from './components/Store';
 
 /*------
   Since JWT requires token to be passed in header
@@ -195,14 +196,21 @@ class App extends Component {
     
     return (
       <Router>
+
+        <Navbar user={this.state.user}/>
+
         <Navbar/>
         <Switch>
+
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user} programs={this.state.user.programs}/>}/>
         <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
+
+        <Route path='/store' render={(props) => <Store {...props} user={this.state.user} points={this.state.user.points}/>} />
         <Route path='/programs' exact render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/programs/:id' render={(props) =>  <Program {...props} user={this.state.user}/> }/>
+
         <Route path='/exercises' component={Exercises}/>
         <Route path='/challenges' component={Challenges}/>
         <Route path='/login' render={(props) => <Login {...props} change={this.changeHandler} login={this.loginHandler}/>}
