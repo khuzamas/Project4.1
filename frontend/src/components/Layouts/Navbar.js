@@ -25,7 +25,7 @@ export default class Navbar extends Component {
               </li>
       
             <li className="nav-item active">
-              <Link className="nav-link" to="Store">Store</Link>
+              <Link className="nav-link" to="/Store">Store</Link>
               
             </li>
           
