@@ -30,14 +30,14 @@ class Programs extends Component {
         
         <div className="col-lg-4 col-md-6 col-sm-12  mb-3">
         <div key={index} className="card rounded-0">
-        <img class="card-img-top rounded-0" src={program.image} alt="Card image"/>
+        <img className="card-img-top rounded-0" src={program.image} alt="Card image"/>
        
         <div className="card-body">
  
               <Link to={`/Programs/${program._id}`}>
               {program.name}
               </Link>
-              <p class="card-text">{program.description}</p>
+              <p className="card-text">{program.description}</p>
               
               </div>
               

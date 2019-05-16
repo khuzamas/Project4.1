@@ -1,14 +1,14 @@
 .user {
-    height: 200px;
+    /* height: 200px; */
     text-align: -webkit-center;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .user img {
     width: 100px;
     height: 100px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    /* margin-top: 40px;
+    margin-bottom: 20px; */
 }
 
 .user-info {
@@ -20,20 +20,20 @@
     text-align: -webkit-center;
 }
 
-.badge, .program, .currency{
+/* .badge, .program, .currency{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
+} */
 
-h4 {
+/* h4 {
     margin-bottom: 40px;
-}
+} */
 
-.badge-img, .program-img, .currency-img{
+/* .badge-img, .program-img, .currency-img{
     margin-right: 20px;
-}
+} */
 
 /* .stats {
     display: flex;
@@ -47,7 +47,7 @@ h4 {
     width: 300px;
     height: 50px;
     /* text-align: -webkit-match-parent; */
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .pie-chart {

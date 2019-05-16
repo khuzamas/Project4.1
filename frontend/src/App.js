@@ -72,22 +72,7 @@ class App extends Component {
     this.setState(data)
   }
 
-  getGames = () =>{
-    //get data from JWT locked route
-    // Passed header variable with token in headers
-    axios.get('/api/games', header)
-    .then(response => {
-      console.log(response.data)
-      if(response.data.games.length > 0){
-        
-        let data = {...this.state}
-        data.games = response.data.games
-
-        this.setState(data)
-      }
-    })
-    .catch()
-  }
+  
 
   submitHandler = (e) => {   
     axios.post('/api/games',{ name : this.state.gamename}, header)
@@ -115,7 +100,9 @@ class App extends Component {
 
         this.setState(data)
 
-        this.getGames()
+
+    
+      
       }
       
     })
@@ -148,18 +135,7 @@ class App extends Component {
     axios.post('/api/auth/register',{ username: this.state.email,email: this.state.email, password: this.state.password})
     .then( response => {
       console.log("hello",response)
-      // if(response.data.token){
-      //   setToken(response.data.token)
 
-      //   let data = {...this.state}
-      //   data.user = response.data.user
-      //   data.isAuthenticated = true
-      //   data.hasError = false
-
-      //   this.setState(data)
-
-      // }
-      
     })
     .catch(err => console.log(err))
   }
@@ -203,7 +179,7 @@ class App extends Component {
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user} programs={this.state.user.programs}/>}/>
-        <Route path='/profile' render={(props => (!this.state.isAuthenticated) ? <Redirect to="/home"/> : <Profile {...props} user={this.state.user}/> )} />
+        <Route path='/profile' render={(props => <Profile {...props} user={this.state.user}/> )} />
 
         <Route path='/store' render={(props) => <Store {...props} user={this.state.user} points={this.state.user.points}/>} />
         <Route path='/programs' exact render={(props) =>  <Programs {...props} user={this.state.user}/> }/>

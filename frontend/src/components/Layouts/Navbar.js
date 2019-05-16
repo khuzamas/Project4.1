@@ -55,7 +55,7 @@ const signup = (!this.props.isAuthenticated) ?
             <img src="https://img.icons8.com/color/48/000000/expensive-2.png" className="nav-link" />
           </li>
           <li className="nav-item ml-auto">
-            <Link className="nav-link" to="Profile"><img src={`${this.props.user.icon}`} alt="" /></Link>
+            <Link className="nav-link" to="/Profile"><img src={`${this.props.user.icon}`} alt="" /></Link>
           </li>
         </ul>
       </div>
