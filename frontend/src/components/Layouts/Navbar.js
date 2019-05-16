@@ -31,11 +31,12 @@ export default class Navbar extends Component {
         
         </ul>
         <ul className="navbar-nav">
-          <li>
-            <img src="https://img.icons8.com/color/48/000000/expensive-2.png" className="nav-link"/>
+          <li className="nav-item active">
+            <Link className="nav-link username" to="Profile">{this.props.user.username}</Link>
+            {/* <a className="nav-link" href="home">Home</a> */}
           </li>
           <li className="nav-item ml-auto">
-            <Link className="nav-link" to="Profile"><img src={`${this.props.user.icon}`} alt=""/></Link>
+            <Link className="nav-link" to="Profile"><img src={`${this.props.user.icon}`} className="profile-pic" alt=""/></Link>
           </li>
         </ul>
       </div> 

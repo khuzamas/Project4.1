@@ -2,6 +2,7 @@
   display: block;
   color: white;
   font-size: 20px;
+  font-family: "Garamond";
 }
 
 a:hover {
@@ -27,4 +28,12 @@ a:hover {
 .n-p {
   /* margin-left: 1070px;
   padding-top: 0; */
+}
+
+.profile-pic {
+  height: 50px;
+}
+
+.username {
+  margin-top: 10px;
 }

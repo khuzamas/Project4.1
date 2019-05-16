@@ -170,6 +170,24 @@ class App extends Component {
       )
   }
 
+  purchaseHandler=(img, price) => {
+    console.log('click');
+    
+    var currPoints= this.state.user.points
+    var newPoints= currPoints- price
+
+    let data= {...this.state.user}
+    data.icon= img
+    data.points= newPoints
+
+    this.setState({user: data})
+
+    axios.put(`http://localhost:4000/api/users/${this.state.user._id}`, { icon: img, points:  newPoints})
+    .then(res => {
+        console.log(res.data);
+    })
+    .catch(err => console.log(err))
+  }
 
 
 
@@ -200,7 +218,8 @@ class App extends Component {
         <Route path='/index' component={Home}/>
         <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user} programs={this.state.user.programs}/>}/>
         <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
-        <Route path='/store' render={(props) => <Store {...props} user={this.state.user} points={this.state.user.points}/>} />
+        <Route path='/store' render={(props) => <Store {...props} user={this.state.user} points={this.state.user.points}
+        purchaseHandler={this.purchaseHandler} />} />
         <Route path='/programs' render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
         <Route path='/exercises' component={Exercises}/>
         <Route path='/challenges' component={Challenges}/>
