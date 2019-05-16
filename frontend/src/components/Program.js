@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
 import axios from 'axios';
 import Exercises from './Exercises'
 
@@ -8,16 +7,10 @@ export default class Program extends Component {
   state = {
     user: this.props.user,
     userPrograms: this.props.user.programs,
-    program: this.props.program
+    program: ''
   }
 
-  filterProgram = (p_id) => {
-    let filtered = this.props.program.filter(el => el._id === p_id)
-    // console.log("filter",filtered)
-    let data = { ...this.state }
-    data.program = filtered[0]
-    this.setState(data)
-  }
+
 
   startProgramClick = () => {
     console.log('clicked');
@@ -57,15 +50,22 @@ export default class Program extends Component {
 
   }
 
-  componentDidMount() {
-    this.filterProgram(this.props.match.params.id)
+  componentDidMount(match) {
+    
+    axios.get(`/api/programs/${this.props.match.params.id}`)
+      .then(res => {
+        console.log("yuyuyuyu",res.data);
+        
+        this.setState({program: res.data})
+      })
+    
   }
 
   render() {
 
 
     return (
-      <div>
+      <div className='container mt-5'>
         <div className="row mb-4">
           <div className=" col-6">
           <img class="card-img" src={this.state.program.image} alt="Card image"/>

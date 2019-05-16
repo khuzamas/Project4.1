@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import Program from './Program';
 import axios from 'axios'
-import {
-  BrowserRouter as Router, Route, Link, Redirect
-} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './Programs.css'
-import Card from 'react-bootstrap/Card'
 
 class Programs extends Component {
   state = {
@@ -22,22 +19,12 @@ class Programs extends Component {
       .catch(err => console.log(err))
   }
 
-  setRedirect = () => {
-    this.setState({
-      page: 'program',
-      redirect: true
-    })
-  }
 
-  filterProgram = (p_id) => {
-    return this.state.programs.filter(el => el.id === p_id)
-  }
 
 
   render() {
 
     const program = this.state.programs.map((program, index) => {
-      const redirectShow = this.state.redirect ? 'in-active' : 'active'
 
       return (
         
@@ -46,8 +33,9 @@ class Programs extends Component {
         <img class="card-img-top" src={program.image} alt="Card image"/>
        
         <div className="card-body">
-              <Link to={`/Program/${program._id}`} onClick={() => this.setRedirect()} className={redirectShow}  >
-                <h6 className="card-title">{program.name}</h6>
+ 
+              <Link to={`/Programs/${program._id}`} currentPath='/programs' >
+              {program.name}
               </Link>
               <p class="card-text">{program.description}</p>
               </div>
@@ -62,13 +50,10 @@ class Programs extends Component {
 
     return (
       <div className='container mt-5'>
-        <Router>
-          <Route path='/program/:id' render={(props) => <Program {...props} program={this.state.programs} user={this.props.user} />} />
-
           <div className="row">
             {program}
           </div>
-        </Router>
+  
       </div>
     )
   }
