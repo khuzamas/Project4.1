@@ -26,25 +26,15 @@ export default class Navbar extends Component {
       
             <li className="nav-item active">
               <Link className="nav-link" to="Store">Store</Link>
-              {/* <a className="nav-link" href="home">Challenges</a> */}
+              
             </li>
           
           </ul>
-          <ul className="navbar-nav">
-            <li>
-              <img src="https://img.icons8.com/color/48/000000/expensive-2.png" className="nav-link"/>
-            </li>
-            <li className="nav-item ml-auto">
-              <Link className="nav-link" to="/Profile"><img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/></Link>
-              </li>
-
-               
-        
-        </ul>
-        <ul className="navbar-nav">
+          
+        <ul className="navbar-nav  ml-auto">
           <li>
             <img src="https://img.icons8.com/color/48/000000/expensive-2.png" className="nav-link"/>
-          </li>
+          </li> 
           <li className="nav-item ml-auto">
             <Link className="nav-link" to="Profile"><img src={`${this.props.user.icon}`} alt=""/></Link>
           </li>
