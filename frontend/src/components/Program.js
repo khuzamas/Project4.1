@@ -67,11 +67,11 @@ export default class Program extends Component {
     return (
       <div className='container mt-5'>
         <div className="row mb-4">
-          <div className=" col-6">
-          <img class="card-img" src={this.state.program.image} alt="Card image"/>
-            <div className="card-img-overlay"><h2 className="text-light shadow  font-weight-bold">{this.state.program.name}</h2></div>
+          <div className=" col-lg-6 col-sm-12">
+          <img class="card-img rounded-0" src={this.state.program.image} alt="Card image"/>
+            <div className="card-img-overlay "><h2 className="text-light shadow  font-weight-bold">{this.state.program.name}</h2></div>
           </div>
-          <div className="col-6">
+          <div className="col-lg-6 col-sm-12">
             <h5>Description:</h5> <p>{this.state.program.description}</p>
             <h5>Reward:</h5> <p>{this.state.program.reward}</p>
             <button className="btn btn-info mr-2" onClick={() => this.startProgramClick()}>Start This Program</button>

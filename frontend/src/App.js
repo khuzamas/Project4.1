@@ -197,16 +197,17 @@ class App extends Component {
     return (
       <Router>
 
-        <Navbar user={this.state.user}/>
+        <Navbar user={this.state.user} isAuthenticated={this.state.isAuthenticated} logout={this.logout}/>
         <Switch>
 
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
         <Route path='/index' component={Home}/>
         <Route path='/userhome' render={(props) => <UserHome {...props} user={this.state.user} programs={this.state.user.programs}/>}/>
-        <Route path='/profile' render={(props) => <Profile {...props} user={this.state.user}/>} />
+        <Route path='/profile' render={(props => (!this.state.isAuthenticated) ? <Redirect to="/home"/> : <Profile {...props} user={this.state.user}/> )} />
 
         <Route path='/store' render={(props) => <Store {...props} user={this.state.user} points={this.state.user.points}/>} />
         <Route path='/programs' exact render={(props) =>  <Programs {...props} user={this.state.user}/> }/>
+      
         <Route path='/programs/:id' render={(props) =>  <Program {...props} user={this.state.user}/> }/>
 
         <Route path='/exercises' component={Exercises}/>
