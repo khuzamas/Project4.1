@@ -36,9 +36,9 @@ export default class Navbar extends Component {
             </li>
             <li className="nav-item ml-auto">
               <Link className="nav-link" to="/Profile"><img src="https://img.icons8.com/color/48/000000/anonymous-mask.png" alt=""/></Link>
+              </li>
 
-            
-           
+               
         
         </ul>
         <ul className="navbar-nav">

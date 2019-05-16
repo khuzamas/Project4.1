@@ -198,8 +198,6 @@ class App extends Component {
       <Router>
 
         <Navbar user={this.state.user}/>
-
-        <Navbar/>
         <Switch>
 
         <Route path="/" exact render={(props => (!this.state.isAuthenticated) ? <Login change={this.changeHandler} login={this.loginHandler} {...props} /> : <Redirect to="/UserHome"/> )} />
