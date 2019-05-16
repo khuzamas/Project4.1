@@ -1,16 +1,16 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input,Col, Form, FormGroup, Label  } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input,Col, FormGroup, Label  } from 'reactstrap';
 import axios from "axios";
 
 
 class AddStats extends React.Component {
  
     state = {
-    name: "",
-    description:"",
-    reward:"",
-    level:"",
-    category:"",
+        heigh: "",
+        weight: "",
+        activity: "",
+        goal: "",
+        date: "",
     modal: false
     };
 
